@@ -4,14 +4,19 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+nodeChar* createCharNode(char value, nodeChar* next){
+    nodeChar* result = malloc(sizeof(nodeChar));
+    result->value = value;
+    result->next = next;
+    return result;
+}
+
 nodeChar* initCharSll(char* array, size_t N) {
     nodeChar* last = malloc(sizeof(nodeChar));
     last->value = array[N - 1];
     last->next = NULL;
     for (int i = N - 2; i >= 0; i--) {
-        nodeChar* nextNode = malloc(sizeof(nodeChar));
-        nextNode->value = array[i];
-        nextNode->next = last;
+        nodeChar* nextNode = createCharNode(array[i], last);
         last = nextNode;
     }
     return last;
@@ -56,7 +61,9 @@ void insertCharSll(nodeChar* first, char value, size_t index) {
     nodeChar* element = malloc(sizeof(nodeChar));
     element->value = value;
     element->next = nextElement;
-    nextNode->next = element;
+    if(nextElement != NULL){
+        nextNode->next = element;
+    }
 }
 
 char getValueCharSll(nodeChar* first, size_t index) {

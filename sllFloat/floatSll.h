@@ -5,6 +5,8 @@ typedef struct _nodeFloat{
     struct _nodeFloat* next;
 } nodeFloat;
 
+nodeFloat* createFloatNode(float value, nodeFloat* next);
+
 nodeFloat* initFloatSll(float* array, size_t N);
 
 void freeFloatSll(nodeFloat* first);

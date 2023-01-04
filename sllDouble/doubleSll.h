@@ -5,6 +5,8 @@ typedef struct _nodeDouble{
     struct _nodeDouble* next;
 } nodeDouble;
 
+nodeDouble* createDoubleNode(double value, nodeDouble* next);
+
 nodeDouble* initDoubleSll(double* array, size_t N);
 
 void freeDoubleSll(nodeDouble* first);

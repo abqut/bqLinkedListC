@@ -4,6 +4,13 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+nodeDouble* createDoubleNode(double value, nodeDouble* next){
+    nodeDouble* result = malloc(sizeof(nodeDouble));
+    result->value = value;
+    result->next = next;
+    return result;
+}
+
 nodeDouble* initDoubleSll(double* array, size_t N) {
     nodeDouble* last = malloc(sizeof(nodeDouble));
     last->value = array[N - 1];
@@ -56,7 +63,9 @@ void insertDoubleSll(nodeDouble* first, double value, size_t index) {
     nodeDouble* element = malloc(sizeof(nodeDouble));
     element->value = value;
     element->next = nextElement;
-    nextNode->next = element;
+    if(nextElement != NULL){
+        nextNode->next = element;
+    }
 }
 
 double getValueDoubleSll(nodeDouble* first, size_t index) {

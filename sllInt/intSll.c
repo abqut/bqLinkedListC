@@ -4,6 +4,13 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+nodeInt* createIntNode(int value, nodeInt* next){
+    nodeInt* result = malloc(sizeof(nodeInt));
+    result->value = value;
+    result->next = next;
+    return result;
+}
+
 nodeInt* initIntSll(int* array, size_t N) {
     nodeInt* last = malloc(sizeof(nodeInt));
     last->value = array[N - 1];
@@ -56,7 +63,9 @@ void insertIntSll(nodeInt* first, int value, size_t index) {
     nodeInt* element = malloc(sizeof(nodeInt));
     element->value = value;
     element->next = nextElement;
-    nextNode->next = element;
+    if(nextElement != NULL){
+        nextNode->next = element;
+    }
 }
 
 int getValueIntSll(nodeInt* first, size_t index) {

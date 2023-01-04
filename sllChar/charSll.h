@@ -5,6 +5,8 @@ typedef struct _nodeChar{
     struct _nodeChar* next;
 } nodeChar;
 
+nodeChar* createCharNode(char value, nodeChar* next);
+
 nodeChar* initCharSll(char* array, size_t N);
 
 void freeCharSll(nodeChar* first);

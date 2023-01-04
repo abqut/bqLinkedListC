@@ -5,6 +5,8 @@ typedef struct _nodeInt{
     struct _nodeInt* next;
 } nodeInt;
 
+nodeInt* createIntNode(int value, nodeInt* next);
+
 nodeInt* initIntSll(int* array, size_t N);
 
 void freeIntSll(nodeInt* first);

@@ -4,6 +4,13 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+nodeFloat* createFloatNode(float value, nodeFloat* next){
+    nodeFloat* result = malloc(sizeof(nodeFloat));
+    result->value = value;
+    result->next = next;
+    return result;
+}
+
 nodeFloat* initFloatSll(float* array, size_t N) {
     nodeFloat* last = malloc(sizeof(nodeFloat));
     last->value = array[N - 1];
@@ -56,7 +63,9 @@ void insertFloatSll(nodeFloat* first, float value, size_t index) {
     nodeFloat* element = malloc(sizeof(nodeFloat));
     element->value = value;
     element->next = nextElement;
-    nextNode->next = element;
+    if(nextElement != NULL){
+        nextNode->next = element;
+    }
 }
 
 float getValueFloatSll(nodeFloat* first, size_t index) {
